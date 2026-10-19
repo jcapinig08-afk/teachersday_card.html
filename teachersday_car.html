@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Teacher's Day, Sir Randy Bello!</title>
+
+<style>
+:root {
+    --bg: #fff0f5;
+    --text: #761735;
+    --card: #ffffff;
+    --pink: #ff4f87;
+    --red: #e60045;
+    --shadow: rgba(230, 0, 69, 0.2);
+}
+
+body.dark {
+    --bg: #190812;
+    --text: #ffe1ec;
+    --card: #301322;
+    --pink: #ff79a8;
+    --red: #ff315f;
+    --shadow: rgba(255, 49, 95, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 15% 20%, #ffb3ce88, transparent 35%),
+        radial-gradient(circle at 85% 75%, #ff174466, transparent 35%);
+}
+
+/* SPARKLES */
+
+#sparkles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.sparkle {
+    position: absolute;
+    color: #ff4f87;
+    text-shadow: 0 0 10px #ff4f87, 0 0 20px white;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.7) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(90deg);
+    }
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    gap: 10px;
+}
+
+.logo {
+    color: var(--pink);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.theme-button {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--pink);
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px var(--shadow);
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.badge {
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    border: 1px solid #ff91b5;
+    border-radius: 30px;
+    background: var(--card);
+    color: var(--pink);
+    animation: fadeDown 1s ease;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 7vw, 75px);
+    margin-bottom: 20px;
+    animation: fadeUp 1s ease;
+}
+
+.shine {
+    background: linear-gradient(
+        90deg,
+        #d60045,
+        #ff9fc5,
+        #ffffff,
+        #ff4f87,
+        #d60045
+    );
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 300% center;
+    }
+}
+
+.hero p {
+    max-width: 600px;
+    line-height: 1.8;
+    font-size: 16px;
+    animation: fadeUp 1.4s ease;
+}
+
+.scroll-hint {
+    margin-top: 30px;
+    color: var(--pink);
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LETTER SECTION */
+
+.letter-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 18px;
+}
+
+.letter-wrapper {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+}
+
+.section-title {
+    color: var(--pink);
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+/* ENVELOPE */
+
+.envelope-container {
+    width: min(100%, 450px);
+    margin: auto;
+    perspective: 1000px;
+}
+
+.envelope {
+    height: 280px;
+    position: relative;
+    cursor: pointer;
+    filter: drop-shadow(0 15px 25px var(--shadow));
+    transition: transform 0.4s;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #c90040, #ff729c);
+    border-radius: 12px;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ffb2cb, #ff4f87);
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    transform-origin: top;
+    transition: transform 1s ease, opacity 0.7s;
+    z-index: 4;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ff85a9, #e60045);
+    clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 12px;
+    z-index: 3;
+}
+
+.heart-seal {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    z-index: 5;
+    filter: drop-shadow(0 0 12px white);
+    transition: opacity 0.5s;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    opacity: 0.35;
+}
+
+.envelope.open .heart-seal {
+    opacity: 0;
+}
+
+/* BUTTON */
+
+.open-button {
+    margin-top: 30px;
+    padding: 15px 28px;
+    border: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg, #e60045, #ff8ab3, #e60045);
+    background-size: 200% auto;
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.open-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff4f8788;
+}
+
+/* LETTER PAPER */
+
+.letter-paper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 25px;
+    background: var(--card);
+    border: 1px solid #ff9fbd;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 20px 60px var(--shadow);
+    overflow: hidden;
+
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+
+    transition:
+        max-height 1.5s ease,
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        padding 0.8s ease,
+        margin 0.8s ease;
+}
+
+.letter-paper.show {
+    max-height: 2000px;
+    opacity: 1;
+    padding: 35px;
+    margin-top: 30px;
+    transform: translateY(0) scale(1);
+}
+
+.letter-paper h2 {
+    color: var(--pink);
+    text-align: center;
+    font-size: clamp(23px, 5vw, 34px);
+    margin-bottom: 25px;
+}
+
+.letter-paper p {
+    line-height: 1.9;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+/* SIGNATURE */
+
+.signature {
+    text-align: right;
+    margin-top: 30px;
+    color: var(--pink);
+    font-weight: bold;
+}
+
+.signature .name {
+    display: block;
+    font-size: 27px;
+    font-family: cursive;
+    margin-top: 10px;
+}
+
+.composed {
+    margin-top: 25px;
+    text-align: center;
+    color: var(--pink);
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    z-index: 6;
+    pointer-events: none;
+    animation: rise linear forwards;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 15px;
+    text-align: center;
+    color: var(--pink);
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 500px) {
+    header {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 10px;
+    }
+
+    .envelope {
+        height: 220px;
+    }
+
+    .letter-paper.show {
+        padding: 25px 18px;
+    }
+
+    .letter-paper p {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div id="sparkles"></div>
+
+<header>
+    <div class="logo">❤️ A LETTER OF GRATITUDE</div>
+
+    <button class="theme-button" id="themeToggle">
+        🌙 Dark Mode
+    </button>
+</header>
+
+<main>
+
+    <!-- WELCOME -->
+    <section class="hero">
+
+        <div class="badge">
+            🌹 A Special Letter for an Amazing Teacher 🌹
+        </div>
+
+        <h1>
+            Happy <span class="shine">Teacher's Day!</span>
+        </h1>
+
+        <p>
+            To our wonderful Web Development instructor,
+            thank you for sharing your knowledge, guiding us
+            through challenges, and helping us build our dreams
+            one line of code at a time. This special letter
+            is made just for you! ❤️
+        </p>
+
+        <div class="scroll-hint">
+            ↓ Scroll down to open your special letter ↓
+        </div>
+
+    </section>
+
+    <!-- LETTER -->
+    <section class="letter-section">
+
+        <div class="letter-wrapper">
+
+            <div class="section-title">
+                MADE WITH LOVE AND APPRECIATION ✨
+            </div>
+
+            <div class="envelope-container">
+
+                <div class="envelope"
+                     id="envelope"
+                     role="button"
+                     tabindex="0"
+                     aria-label="Open Teacher's Day letter"
+                     aria-expanded="false">
+
+                    <div class="envelope-back"></div>
+                    <div class="envelope-flap"></div>
+                    <div class="heart-seal">💖</div>
+                    <div class="envelope-front"></div>
+
+                </div>
+
+            </div>
+
+            <button class="open-button" id="openButton">
+                💌 Open Your Special Letter
+            </button>
+
+            <article class="letter-paper"
+                     id="letterPaper"
+                     aria-hidden="true">
+
+                <h2>Dear Sir Randy Bello, 🌹</h2>
+
+                <p><strong>Happy Teacher's Day, Sir! ❤️</strong></p>
+
+                <p>
+                    Today, I want to express my heartfelt gratitude
+                    for being our Web Development instructor.
+                    Thank you for sharing your knowledge, patience,
+                    and time with us. Your dedication to teaching
+                    means so much to your students.
+                </p>
+
+                <p>
+                    Learning Web Development can sometimes be
+                    challenging, especially when our code has
+                    errors and our websites do not work as expected.
+                    But through your lessons and guidance, we learn
+                    to be more patient, creative, and determined.
+                </p>
+
+                <p>
+                    Thank you for teaching us not only how to create
+                    websites but also how to solve problems,
+                    think creatively, and never give up when things
+                    become difficult. Every lesson helps us improve
+                    our skills and prepares us for our future.
+                </p>
+
+                <p>
+                    I truly appreciate the effort you put into
+                    teaching us. Your knowledge and encouragement
+                    inspire us to keep learning and become
+                    better students. I hope you know that your
+                    hard work makes a difference in our lives.
+                </p>
+
+                <p>
+                    On this special day, I wish you happiness,
+                    good health, success, and many more blessings.
+                    May you continue to inspire students and
+                    share your knowledge with kindness and passion.
+                    You deserve all the appreciation and respect
+                    that we give you today.
+                </p>
+
+                <p>
+                    Thank you for being a wonderful instructor
+                    and for helping us take another step toward
+                    our dreams. We are grateful to have you
+                    as our Web Development teacher.
+                </p>
+
+                <p>
+                    <strong>
+                        Happy Teacher's Day, Sir Randy Bello!
+                        Thank you for everything. ❤️🌹
+                    </strong>
+                </p>
+
+                <div class="signature">
+                    With respect and gratitude,
+                    <span class="name">Jessa Mae Capinig 💗</span>
+                </div>
+
+                <div class="composed">
+                    ✨ Composed by Jessa Mae Capinig ✨
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Made with ❤️, gratitude, and a little bit of code.</p>
+    <p>✨ Happy Teacher's Day, Sir Randy Bello! ✨</p>
+    <p>© 2026 | A Special Appreciation Letter</p>
+</footer>
+
+<script>
+/* DARK MODE / LIGHT MODE */
+
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark");
+
+    const isDark = document.body.classList.contains("dark");
+
+    themeToggle.textContent = isDark
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+
+    localStorage.setItem(
+        "teacherLetterTheme",
+        isDark ? "dark" : "light"
+    );
+});
+
+/* RESTORE SAVED THEME */
+
+try {
+    if (localStorage.getItem("teacherLetterTheme") === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.textContent = "☀️ Light Mode";
+    }
+} catch (error) {
+    console.log("Theme preference could not be saved.");
+}
+
+/* OPEN / CLOSE LETTER */
+
+const envelope = document.getElementById("envelope");
+const openButton = document.getElementById("openButton");
+const letterPaper = document.getElementById("letterPaper");
+
+let isOpen = false;
+
+function toggleLetter() {
+
+    isOpen = !isOpen;
+
+    if (isOpen) {
+
+        envelope.classList.add("open");
+        envelope.setAttribute("aria-expanded", "true");
+
+        openButton.textContent = "💖 Close Letter";
+
+        setTimeout(function () {
+
+            letterPaper.classList.add("show");
+            letterPaper.setAttribute("aria-hidden", "false");
+
+            setTimeout(function () {
+                letterPaper.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }, 250);
+
+            createHeartBurst();
+
+        }, 450);
+
+    } else {
+
+        envelope.classList.remove("open");
+        envelope.setAttribute("aria-expanded", "false");
+
+        letterPaper.classList.remove("show");
+        letterPaper.setAttribute("aria-hidden", "true");
+
+        openButton.textContent = "💌 Open Your Special Letter";
+    }
+}
+
+openButton.addEventListener("click", toggleLetter);
+envelope.addEventListener("click", toggleLetter);
+
+envelope.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleLetter();
+    }
+});
+
+/* SPARKLING STARS */
+
+const sparkleContainer = document.getElementById("sparkles");
+const sparkleSymbols = ["✦", "✧", "⋆", "✨", "·"];
+
+for (let i = 0; i < 45; i++) {
+
+    const sparkle = document.createElement("span");
+
+    sparkle.className = "sparkle";
+
+    sparkle.textContent =
+        sparkleSymbols[
+            Math.floor(Math.random() * sparkleSymbols.length)
+        ];
+
+    sparkle.style.left = Math.random() * 100 + "%";
+    sparkle.style.top = Math.random() * 100 + "%";
+
+    sparkle.style.fontSize =
+        (8 + Math.random() * 17) + "px";
+
+    sparkle.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    sparkle.style.animationDuration =
+        (2 + Math.random() * 4) + "s";
+
+    sparkleContainer.appendChild(sparkle);
+}
+
+/* FLOATING HEARTS */
+
+function createHeart() {
+
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+
+    const hearts = ["💖", "💕", "💗", "❤️", "✨"];
+
+    heart.textContent =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (14 + Math.random() * 22) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 1200);
+
+/* EXTRA HEARTS WHEN OPENING THE LETTER */
+
+function createHeartBurst() {
+
+    for (let i = 0; i < 16; i++) {
+        setTimeout(createHeart, i * 100);
+    }
+}
+</script>
+
+</body>
+</html>
+Compose
+Write to Cyrine Ibanes
+
+
